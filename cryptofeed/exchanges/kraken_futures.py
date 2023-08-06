@@ -43,6 +43,7 @@ class KrakenFutures(Feed):
         _kraken_futures_product_type = {
             'FI': 'Inverse Futures',
             'FV': 'Vanilla Futures',
+            'FF': 'Fixed Maturity Linear Futures',
             'PI': 'Perpetual Inverse Futures',
             'PF': 'Perpetual Linear Multi-Collateral Futures',
             'PV': 'Perpetual Vanilla Futures',
@@ -63,7 +64,7 @@ class KrakenFutures(Feed):
                 stype = FUTURES
                 symbol, expiry = symbol.split("_")
             symbol = symbol.replace('XBT', 'BTC')
-            base, quote = symbol[:len(symbol) - 3], symbol[-3:]
+            base, quote = symbol[:-3], symbol[-3:]
 
             s = Symbol(base, quote, type=stype, expiry_date=expiry)
 
