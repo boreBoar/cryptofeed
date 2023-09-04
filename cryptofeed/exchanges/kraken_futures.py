@@ -40,11 +40,13 @@ class KrakenFutures(Feed):
 
     @classmethod
     def _parse_symbol_data(cls, data: dict) -> Tuple[Dict, Dict]:
+        # Docs, https://support.kraken.com/hc/en-us/articles/360022835891-Ticker-symbols
         _kraken_futures_product_type = {
             'FI': 'Inverse Futures',
             'FV': 'Vanilla Futures',
             'FF': 'Fixed Maturity Linear Futures',
             'PI': 'Perpetual Inverse Futures',
+            'FF': 'Fixed Maturity Linear Futures',
             'PF': 'Perpetual Linear Multi-Collateral Futures',
             'PV': 'Perpetual Vanilla Futures',
             'IN': 'Real Time Index',
